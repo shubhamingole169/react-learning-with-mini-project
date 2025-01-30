@@ -83,6 +83,7 @@ export const Todo = () => {
                             data={curTask.content}
                             checked={curTask.checked}
                             onHandleCheckedTodo = {handleCheckedTodo}
+                            handleDeleteTodo={handleDeleteTodo}
                             />
                             )
                         })
