@@ -1,78 +1,41 @@
-import { useEffect, useState } from "react"
 import "./Todo.css"
-import { MdCheck, MdDeleteForever } from "react-icons/md";
+import { TodoForm } from "./TodoForm";
+import { TodoList } from "./TodoList";
+import { TodoDate } from "./TodoDate";
+import { useState } from "react";
 export const Todo = () => {
-    const [inputValue, setInputValue] = useState("");
+    
     const [task, setTask] = useState([]);
-    const [ dateTime, setDateTime] = useState("");
+    
 
-    const handleInputChange = (value) =>{
-        setInputValue(value);
-    };
 
-    const handleSubmitForm = (event) =>{
-        event.preventDefault();
+
+    const handleSubmitForm = (inputValue) =>{
+        
         if(!inputValue) return;
-
-        if(task.includes(inputValue)){
-            setInputValue("");
-            return;
-        }
-
+        if(task.includes(inputValue)) return;
         setTask((prevTask) =>[...prevTask, inputValue]);
-
-        setInputValue("");
     };
 
-    // todo data and time
-
-    useEffect(() => {
-    const interval =  setInterval(() =>{
-            const now = new Date();
-            const formattedDate = now.toLocaleDateString();
-            const formattedTime = now.toLocaleTimeString();
-
-        
-            setDateTime(`${formattedDate} - ${formattedTime}`);
-            }, 1000);
-
-        return () => clearInterval(interval);
-        
-    })
+    
 
 
     return (
         <section className="todo-container">
             <header>
                 <h1>Todo List</h1>
-                <h2 className="date-time"> {dateTime} </h2>
+                < TodoDate />
             </header>
-            <section className="form">
-                <form onSubmit={handleSubmitForm}>
-                    <div>
-                        <input type="text" className="todo-input" autoComplete="off" value={inputValue}
-                            onChange={(event) => handleInputChange(event.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <button type="submit" className="todo-btn">Add Task</button>
-                    </div>
-                </form>
-            </section>
+            < TodoForm onAddTodo ={handleSubmitForm}/>
             <section className="myUnOrdList">
                 <ul>
                     {
                         task.map((curTask, index) =>{
                             return(
-                            <li key={index} className="todo-item">
-                            <span>{curTask}</span>
-                            <button className="check-btn">
-                                <MdCheck />
-                            </button>
-                            <button className="delete-btn">
-                                <MdDeleteForever />
-                            </button>
-                            </li>
+                            < TodoList
+                            key={index}
+                            data={curTask}
+                            />
                             )
                         })
                     }
