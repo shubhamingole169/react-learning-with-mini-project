@@ -15,6 +15,7 @@ export const Todo = () => {
         if(!inputValue) return;
         if(task.includes(inputValue)) return;
         setTask((prevTask) =>[...prevTask, inputValue]);
+    }
 
 
     // todo handleDeleteTodo
@@ -49,6 +50,7 @@ export const Todo = () => {
                             < TodoList
                             key={index}
                             data={curTask}
+                            onHandleDeleteTodo ={handleDeleteTodo}
                             />
                             )
                         })
