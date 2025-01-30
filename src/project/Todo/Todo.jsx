@@ -48,6 +48,23 @@ export const Todo = () => {
         setTask(updatedTask);
     }
 
+        // todo handleDeleteTodo
+
+        const handleDeleteTodo = (value) =>{
+            console.log(task);
+            console.log(value);
+            const upadatedTask = task.filter((curTask) => curTask !== value);
+            setTask(upadatedTask);
+        }
+    
+    
+        // todo handleclear todo data function
+    
+        const handleClearTodoData = () =>{
+            setTask([]);
+        }
+    
+
 
     return (
         <section className="todo-container">
@@ -66,11 +83,19 @@ export const Todo = () => {
                             data={curTask.content}
                             checked={curTask.checked}
                             onHandleCheckedTodo = {handleCheckedTodo}
+                            handleDeleteTodo={handleDeleteTodo}
                             />
                             )
                         })
                     }
                 </ul>
+            </section>
+            <section>
+                <button
+                className="clear-btn"
+                onClick={handleClearTodoData}>
+                Clear All
+                </button>
             </section>
         </section>
     )
