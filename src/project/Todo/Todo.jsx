@@ -72,9 +72,7 @@ export const Todo = () => {
                     }
                 </ul>
             </section>
-            <section>
-                <button className="clear-btn" onClick={handleClearTodoData}>Clear All</button>
-            </section>
         </section>
-    );
+    )
+
 }
