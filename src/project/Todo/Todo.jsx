@@ -13,7 +13,7 @@ export const Todo = () => {
     const handleSubmitForm = (inputValue) =>{
 
         const{ id, content, checked } = inputValue;
-        //  to check if the input field is or not 
+        //  to check if the input field is or not
         if(!content) return;
         // to check doe data already present or not !!
         // if(task.includes(inputValue)) return;
@@ -51,9 +51,7 @@ export const Todo = () => {
         // todo handleDeleteTodo
 
         const handleDeleteTodo = (value) =>{
-            console.log(task);
-            console.log(value);
-            const upadatedTask = task.filter((curTask) => curTask !== value);
+            const upadatedTask = task.filter((curTask) => curTask.content !== value);
             setTask(upadatedTask);
         }
     
@@ -82,8 +80,8 @@ export const Todo = () => {
                             key={curTask.id}
                             data={curTask.content}
                             checked={curTask.checked}
+                            onHandleDeleteTodo={handleDeleteTodo}
                             onHandleCheckedTodo = {handleCheckedTodo}
-                            handleDeleteTodo={handleDeleteTodo}
                             />
                             )
                         })
@@ -99,5 +97,4 @@ export const Todo = () => {
             </section>
         </section>
     )
-
 }
