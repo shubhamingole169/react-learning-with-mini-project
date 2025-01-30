@@ -11,13 +11,42 @@ export const Todo = () => {
 
 
     const handleSubmitForm = (inputValue) =>{
+
+        const{ id, content, checked } = inputValue;
+        //  to check if the input field is or not 
+        if(!content) return;
+        // to check doe data already present or not !!
+        // if(task.includes(inputValue)) return;
+        const ifTodoContentMatched = task.find(
+            (curTask) => curTask.content === content
+        );
+
+        if(ifTodoContentMatched) return;
         
-        if(!inputValue) return;
-        if(task.includes(inputValue)) return;
-        setTask((prevTask) =>[...prevTask, inputValue]);
+        
+        // setTask((prevTask) =>[...prevTask, inputValue]);
+        setTask((prevTask) => [
+            ...prevTask,
+            { id, content, checked }
+        ]);
+        
     };
 
     
+
+    // todo handleCheckedTodo Functionality
+
+    const handleCheckedTodo = (content) =>{
+        const updatedTask = task.map((curTask) => {
+            if(curTask.content === content){
+                return{ ...curTask, checked: !curTask.checked };
+            }else{
+                return curTask;
+            }
+            
+        });
+        setTask(updatedTask);
+    }
 
 
     return (
@@ -30,11 +59,13 @@ export const Todo = () => {
             <section className="myUnOrdList">
                 <ul>
                     {
-                        task.map((curTask, index) =>{
+                        task.map((curTask) =>{
                             return(
-                            < TodoList
-                            key={index}
-                            data={curTask}
+                            <TodoList
+                            key={curTask.id}
+                            data={curTask.content}
+                            checked={curTask.checked}
+                            onHandleCheckedTodo = {handleCheckedTodo}
                             />
                             )
                         })

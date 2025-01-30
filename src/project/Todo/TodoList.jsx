@@ -1,10 +1,12 @@
+/* eslint-disable react/prop-types */
 import { MdCheck, MdDeleteForever } from "react-icons/md"
 
-export const TodoList = ({key, data}) => {
+export const TodoList = ({ data, checked, onHandleCheckedTodo}) => {
+    // const isChecked = 
     return (
-        <li key={key} className="todo-item">
-            <span>{data}</span>
-            <button className="check-btn">
+        <li className="todo-item">
+            <span className={checked ? "checkList" : "notCheckedList"}>{data}</span>
+            <button className="check-btn" onClick={() =>{onHandleCheckedTodo(data)}}>
                 <MdCheck />
             </button>
             <button className="delete-btn">
