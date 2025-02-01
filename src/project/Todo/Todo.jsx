@@ -3,9 +3,22 @@ import { TodoForm } from "./TodoForm";
 import { TodoList } from "./TodoList";
 import { TodoDate } from "./TodoDate";
 import { useState } from "react";
+// import { 
+//     getLocaleStorageTodoData, 
+//     setLocaleStorageTodoData
+// } from './TodoLocaleStorage';
+
 export const Todo = () => {
-    
-    const [task, setTask] = useState([]);
+
+const todoKey ="reactTodo";
+const getLocaleStorageTodoData = () => {
+    const rawTodos = localStorage.getItem(todoKey);
+    if (!rawTodos) return [];
+    return JSON.parse(rawTodos);
+}
+
+
+    const [task, setTask] = useState(() => getLocaleStorageTodoData());
     
 
 
@@ -32,7 +45,14 @@ export const Todo = () => {
         
     };
 
+    // todo set locale storage data
     
+    const setLocaleStorageTodoData = (task) => {
+        console.log(task);
+        return localStorage.setItem(todoKey,JSON.stringify(task));
+}
+
+    setLocaleStorageTodoData(task);
 
     // todo handleCheckedTodo Functionality
 
@@ -47,6 +67,8 @@ export const Todo = () => {
         });
         setTask(updatedTask);
     }
+
+
 
         // todo handleDeleteTodo
 
