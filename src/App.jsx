@@ -1,4 +1,4 @@
-import { Todo } from "./project/Todo/Todo";
+import { RegistrationFormReact } from "./components/hooks/useState/RegistrationReact";
 
 
 
@@ -7,7 +7,7 @@ import { Todo } from "./project/Todo/Todo";
 export const App = () =>{
   return(
     <section>
-      <Todo />
+      < RegistrationFormReact />
     </section>
   );
 };
