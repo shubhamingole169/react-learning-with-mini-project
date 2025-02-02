@@ -1,4 +1,5 @@
-import { RegistrationFormReact } from "./components/hooks/useState/RegistrationReact";
+import { CleanUp } from "./components/hooks/useEffect/CleanUp";
+
 
 
 
@@ -7,7 +8,7 @@ import { RegistrationFormReact } from "./components/hooks/useState/RegistrationR
 export const App = () =>{
   return(
     <section>
-      < RegistrationFormReact />
+      < CleanUp  />
     </section>
   );
 };
