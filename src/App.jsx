@@ -1,4 +1,4 @@
-import { HowNotToFetchApi } from "./components/hooks/useEffect/HowNotToFetchApi";
+import { HowToFetchApi } from "./components/hooks/useEffect/HowToFetchApiData";
 
 
 
@@ -8,7 +8,7 @@ import { HowNotToFetchApi } from "./components/hooks/useEffect/HowNotToFetchApi"
 export const App = () =>{
   return(
     <section>
-      < HowNotToFetchApi  />
+      < HowToFetchApi  />
     </section>
   );
 };
