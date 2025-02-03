@@ -1,4 +1,4 @@
-import { CleanUp } from "./components/hooks/useEffect/CleanUp";
+import { HowNotToFetchApi } from "./components/hooks/useEffect/HowNotToFetchApi";
 
 
 
@@ -8,7 +8,7 @@ import { CleanUp } from "./components/hooks/useEffect/CleanUp";
 export const App = () =>{
   return(
     <section>
-      < CleanUp  />
+      < HowNotToFetchApi  />
     </section>
   );
 };
