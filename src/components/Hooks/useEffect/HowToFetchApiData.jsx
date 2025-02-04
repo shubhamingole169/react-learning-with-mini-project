@@ -9,19 +9,33 @@ export const HowToFetchApi = () =>{
 
     const API = "https://pokeapi.co/api/v2/pokemon/pikachu"
 
-    const fetchPokemon = () =>{
-        fetch(API)
-        .then((res) => res.json())
-        .then((data) => {
-            setPokemon(data);
-            setLoading(false);
-            })
-        .catch((error) => {
-        console.log(error);
-        setError(error);
-        setLoading(false)}
-    );
-    }
+    // const fetchPokemon = () =>{
+    //     fetch(API)
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         setPokemon(data);
+    //         setLoading(false);
+    //         })
+    //     .catch((error) => {
+    //     console.log(error);
+    //     setError(error);
+    //     setLoading(false)}
+    // );
+    // }
+
+    // const fetchPokemon = async () =>{
+    //     try {
+    //         const res = await fetch(API);
+    //         const data = await res.json();
+    //         setPokemon(data);
+    //         setLoading(false);
+            
+    //     } catch (error) {
+    //         console.log(error);
+    //         setError(error)
+    //         setLoading(false);
+    //     }
+    // }
 
     useEffect(() => {
         fetchPokemon();
