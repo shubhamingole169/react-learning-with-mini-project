@@ -1,14 +1,11 @@
-import { HowToFetchApi } from "./components/hooks/useEffect/HowToFetchApiData";
-
-
-
+import { UseRef } from "./components/hooks/useRefs/UseRef";
 
 
 
 export const App = () =>{
   return(
     <section>
-      < HowToFetchApi  />
+      < UseRef  />
     </section>
   );
 };
