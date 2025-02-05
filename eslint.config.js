@@ -29,7 +29,7 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       //this of making off typechecking
-      'react/props-type':'off',
+      'react/props-type':"off",
       'react/jsx-no-target-blank': 'off',
       'react-refresh/only-export-components': [
         'warn',
