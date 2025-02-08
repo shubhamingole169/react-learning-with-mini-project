@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
 
 // 1 steap
@@ -16,4 +16,14 @@ export const BioProvider = ({children}) =>{
     return <BioContext.Provider value={{myName, myAge}}>
         {children}
     </BioContext.Provider>
+};
+
+//custom hook
+
+export const useBioContext = () => {
+    const context = useContext(BioContext);
+    if(context === undefined){
+        throw new Error("component is  outside ");
+    }
+    return context;
 }
