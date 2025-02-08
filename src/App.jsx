@@ -1,5 +1,5 @@
 import { ReactMemo } from "./components/hooks/Memo/ReactMemo";
-
+import "./index.css"
 
 
 
