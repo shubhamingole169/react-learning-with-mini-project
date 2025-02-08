@@ -1,4 +1,4 @@
-import { ThemeProveder } from "./components/hooks/ContextApi/DarkLight";
+import { ReducerComp } from "./components/hooks/useReducer";
 
 
 
@@ -6,9 +6,7 @@ import { ThemeProveder } from "./components/hooks/ContextApi/DarkLight";
 
 export const App = () =>{
   return(
-    <ThemeProveder>
-      <DarkLight  />
-    </ThemeProveder>
+    <ReducerComp />
     
   );
 };
